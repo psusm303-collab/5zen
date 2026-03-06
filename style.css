@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  text-align: center;
+  color: #333;
+}
+
+#card-area {
+  max-width: 1400px;
+  margin: 30px auto 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px 0;
+  overflow: visible;
+}
+
+.card {
+  width: 132px;
+  height: 194px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+
+  position: relative;
+  z-index: 1;
+}
+
+.card.flipped {
+  transform: translateY(-18px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+  z-index: 999;
+}
+
+#selected-card-box {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+#shuffle-btn {
+  padding: 12px 26px;
+  font-size: 1rem;
+  background-color: #1d66ff;
+  color: #fff;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#shuffle-btn:hover {
+  background-color: #0048db;
+}
+
+@keyframes shuffle-move {
+  0%   { transform: translateX(0); }
+  30%  { transform: translateX(14px) rotate(1deg); }
+  60%  { transform: translateX(-14px) rotate(-1deg); }
+  100% { transform: translateX(0); }
+}
+
+#card-area.shuffling .card {
+  animation: shuffle-move 0.45s ease-in-out;
+}
+
+@media (max-width: 480px) {
+
+  .card {
+    width: 100px;
+    height: 147px;
+  }
+
+  #selected-card-box {
+    font-size: 1.05rem;
+  }
+
+  #shuffle-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+}
