@@ -70,46 +70,37 @@ function flipCard(card) {
 
   document.querySelectorAll(".card").forEach((c) => {
     c.classList.remove("flipped");
-    c.style.backgroundImage = `url('${BACK_URL}')`;
+    c.style.backgroundImage = `url("${BACK_URL}")`;
   });
 
-  card.style.backgroundImage = `url('${imgUrl}')`;
+  card.style.backgroundImage = `url("${imgUrl}")`;
   card.classList.add("flipped");
 
   const box = document.getElementById("selected-card-box");
-  if (box) {
-    box.innerText = "선택된 카드: " + code;
-  }
+  if (box) box.innerText = "선택된 카드: " + code;
 }
 
 function spreadCards() {
   const area = document.getElementById("card-area");
   if (!area) return;
 
-  area.classList.add("shuffling");
+  area.innerHTML = "";
 
   const shuffled = [...cardCodes].sort(() => Math.random() - 0.5);
-  area.innerHTML = "";
 
   shuffled.forEach((code) => {
     const card = document.createElement("div");
     card.className = "card";
     card.dataset.code = code;
-    card.style.backgroundImage = `url('${BACK_URL}')`;
+    card.style.backgroundImage = `url("${BACK_URL}")`;
     card.onclick = () => flipCard(card);
     area.appendChild(card);
   });
 
   const box = document.getElementById("selected-card-box");
-  if (box) {
-    box.innerText = "선택된 카드: 없음";
-  }
-
-  setTimeout(() => {
-    area.classList.remove("shuffling");
-  }, 480);
+  if (box) box.innerText = "선택된 카드: 없음";
 }
 
-window.addEventListener("load", spreadCards);
+window.addEventListener("DOMContentLoaded", spreadCards);
 window.spreadCards = spreadCards;
 
