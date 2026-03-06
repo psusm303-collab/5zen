@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ZEN 카드</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div style="
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:120px;
+">
+  <p style="
+    font-size:0.96rem;
+    line-height:1.4;
+    text-align:left;
+    margin:0;
+  ">
+    삶에서 궁금한 점을 떠올린 뒤, 그 질문에 대한 답으로 카드 1장을 선택하세요.
+    선택이 끝나면 하단에 카드 코드(예: M10)가 표시됩니다.<br><br>
+
+    질문 내용과 카드 코드를 아래 AI 자동해석 신청에 입력해 주세요.<br>
+    카드는 ‘지금 마음이 머무는 지점’을 반영하기 쉬우니, 가볍게 넘기기보다
+    한 번 숨 고르고 선택하는 편이 체감도가 높습니다.<br><br>
+
+    📌 AI 자동해석 서비스는 시리얼 번호(이용권)가 있어야 이용할 수 있습니다.
+  </p>
+</div>
+
+<div style="margin-top:15px;">
+  <button id="shuffle-btn" onclick="spreadCards()">카드 섞기</button>
+</div>
+
+<div id="card-area"></div>
+
+<div id="selected-card-box">
+선택된 카드: 없음
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
